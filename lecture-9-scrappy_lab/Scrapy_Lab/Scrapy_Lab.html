@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Build a Scrapy Project from Scratch</title>
+    <meta charset="utf-8">
+    <meta name="author" content="NYC Data Science Academy" />
+    <link rel="stylesheet" href="asset/css/footer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Build a Scrapy Project from Scratch
+### NYC Data Science Academy
+
+---
+
+
+
+
+# Outline
+- Project Workflow
+
+- Scrape Main Result page - find the pattern of urls
+
+    - First Middle Way Checkpoint - print number of products
+
+- Scrape Product Detail Page - find the url of review page
+
+    - Second Middle Way Checkpoint - print meta data from response
+
+- Scrape Review Pages 
+
+- Pipelines and Settings
+---
+# Project Workflow
+- Open terminal (Anaconda Prompt on Windows) and cd to the folder you want to create the scrapy project. Then run the following command:
+
+
+```bash
+scrapy startproject bestbuy
+```
+
+- For this lab, we want to scrape the reviews of all PC laptops on [bestbuy.com](https://www.bestbuy.com/site/all-laptops/pc-laptops/pcmcat247400050000.c?id=pcmcat247400050000)
+
+- Common scraping strategy: start from the main result page and then go levels down.
+
+---
+# Define data to scrape in **items.py**
+
+- We want to scrape the following information:
+  
+  - Product Name
+  
+  - User Name
+  
+  - Review Rating
+
+  - Review Text
+
+  - Review title
+
+  - Number of Helpful
+  
+  - Number of Unhelpful
+
+---
+# Define data to scrape in **items.py**
+- Let's define 7 fields in `BestbuyItem` and call them `user`, `rating`, `text`, `title`, `helpful`, `unhelpful`, and  `product`. 
+
+- Fields can be named differently, but remember they serve as the keys to your `BestbuyItem` if you take each item as a dictionary.
+
+
+```python
+import scrapy
+class BestbuyItem(scrapy.Item):
+    # define the fields for your item here like:
+    user = scrapy.Field()
+    rating = scrapy.Field()
+    text = scrapy.Field()
+    title = scrapy.Field()
+    helpful = scrapy.Field()
+    unhelpful = scrapy.Field()
+    product = scrapy.Field()
+```
+
+---
+# Scraping will be defined in **bestbuy_spider.py**
+
+- Create a file called **bestbuy_spider.py** under **bestbuy/spiders/**
+
+- This file can be named differently - but this is where the spider file is placed and where you will spend most of your time debugging.
+
+- Your folder structure should look something like this:
+
+```{}
+scrapy.cfg         
+bestbuy/      
+  items.py
+  middlewares.py
+  pipelines.py  
+  settings.py
+  spiders/
+*    bestbuy_spider.py
+```
+
+---
+# Importing classes in **bestbuy_spider.py**
+- We will spend most of the time debugging our spider. Let’s figure it out step by step.
+
+- In **bestbuy_spider.py**, import the `Spider` class and the `BestbuyItem` class we defined earlier in **items.py**.
+
+
+```python
+from scrapy import Spider
+from bestbuy.items import BestbuyItem
+```
+
+---
+# Now, let's set up a scraping task in **bestbuy_spider.py** 
+
+- Next, we need to define our own Spider. Here we call it `BestBuySpider`
+
+- Don’t forget to specify allowed_urls and start_urls!
+
+
+```python
+class BestBuySpider(Spider):
+	name = 'bestbuy_spider'
+	allowed_urls = ['https://www.bestbuy.com/']
+	start_urls = ['https://www.bestbuy.com/site/all-laptops/pc-laptops/pcmcat247400050000.c?id=pcmcat247400050000']
+	def parse(self, response):
+	    pass
+```
+
+- Here, we give the spider a name called `bestbuy_spider`. Later on when we run the spider on the terminal, we just call:
+
+```bash
+scrapy crawl bestbuy_spider
+```
+
+
+---
+# How do you find patterns in urls?
+
+- Try exploring the urls of the subsequent result pages. Do you see any pattern?
+
+- Next, how do we figure out the total number of pages?
+
+- Use Scrapy shell to test it. **Don't forget to wrap the url with quotations.**
+
+- If you need to extract the numbers using regular expression, don't forget to `import re`, both in Scrapy shell and the `bestbuy_spider.py` file.
+
+- Use list comprehension to construct urls to different pages.
+
+---
+# Constructing the **result_urls** list in **bestbuy_spider.py**
+
+
+```python
+def parse(self, response):
+    # Find the total number of pages in the result so that we can decide how many urls to scrape next
+    text = response.xpath('//div[@class="left-side"]/span/text()').extract_first()
+    _, per_page, total = map(lambda x: int(x), re.findall('\d+', text))
+    number_pages = total // per_page + 1
+    # List comprehension to construct all the urls
+    result_urls = ['https://www.bestbuy.com/site/all-laptops/pc-laptops/pcmcat247400050000.c?cp={}&amp;id=pcmcat247400050000'.format(x) for x in range(1,number_pages+1)]
+```
+
+- However, we are not ready to scrape for the fields yet. Next, we have to go to each result page for each product on the page in order to find all the reviews.
+
+- **Next question:** How do we go to each result page?
+
+---
+# Setting up a **Request** object
+
+- Add `from scrapy import Request` at the top of your spider file.
+
+- For debugging purposes, let's focus on the first two pages.
+
+
+```python
+def parse(self, response):
+    # Find the total number of pages in the result so that we can decide how many pages to scrape next
+    text = response.xpath('//div[@class="left-side"]/span/text()').extract_first()
+    _, per_page, total = map(lambda x: int(x), re.findall('\d+', text))
+    number_pages = total // per_page
+    # List comprehension to construct all the urls
+    result_urls = ['https://www.bestbuy.com/site/all-laptops/pc-laptops/pcmcat247400050000.c?cp={}&amp;id=pcmcat247400050000'.format(x) for x in range(1,number_pages+1)]
+    # Yield the requests to different search result urls, 
+    # using parse_result_page function to parse the response.
+    for url in result_urls[:2]:
+        yield Request(url=url, callback=self.parse_result_page)
+```
+
+- This yields a new `Request` object that goes to the new url and then direct Scrapy to `parse_result_page`, _which we haven't defined yet_, to parse the response object we got from each of the urls.
+
+---
+# First middle way checkpoint - print number of products
+- Define the `parse_result_page(self, response)` as a method of the `BestBuySpider` class. **Make sure it is on the same column as the parse method.**
+
+- Go to Scrapy shell and find the xpath to all the product detail page urls. Print the length of the url list inside the function.
+
+- Uncomment the `DOWNLOAD_DELAY` attribute in the `settings.py` file to add 3 seconds delay between two separate `Requests`.
+
+- Save your code. Navigate to the project directory (the one that contains scrapy.cfg file) on the terminal. You should have two tabs now (one for Scrapy shell and the other one for running the spider).
+
+
+---
+# First middle way checkpoint - print number of products
+
+```python
+def parse_result_page(self, response):
+    # This fucntion parses the search result page.
+    # We are looking for url of the detail page.
+    detail_urls = response.xpath('//div[@class="sku-title"]/h4/a/@href').extract()
+    print(len(detail_urls))
+```
+
+- Start the spider by running the following command:
+
+```bash
+scrapy crawl bestbuy_spider
+```
+- If everything works, you should be able to see 24 on the terminal. That means scrapy is getting into the `parse_result_page` as expected.
+
+---
+# First middle way checkpoint - print number of products
+- Similarily, we will yield a new `Request` object for each product detail page.
+
+
+```python
+def parse_result_page(self, response):
+    # This fucntion parses the search result page.
+    # We are looking for url of the detail page.
+    detail_urls = response.xpath('//div[@class="sku-title"]/h4/a/@href').extract()
+    print(len(detail_urls))
+    print('=' * 50)
+    # Yield the requests to the details pages, 
+    # using parse_detail_page function to parse the response.
+    for url in detail_urls:
+        yield Request(url='https://www.bestbuy.com/' + url, callback=self.parse_detail_page)
+```
+
+- We need to define the `parse_detail_page` method that will be used to parse the response object for each product detail page.
+
+---
+# Testing field parsing and ending the session 
+- As always, we will go to Scrapy shell and test our xpath. But keep in mind, our current session is still connected to the main result page! 
+
+- **Stop the current session** by pressing `Ctrl+d` and start a new Scrapy shell to the product detail page.
+
+- You can pick any product to test your code.
+
+- To get all reviews, you have to click the average review rating and it will direct you to the bottom of the page. If it has more than 8 reviews, there will be a **See All Customer Reviews** button.
+
+- Use Scrapy shell to find the url of the all reviews button.
+
+---
+# Scraping the product review page
+- Following the same workflow as before, yield a new Request to the review page and use a function called `parse_review_page`, _which we haven't defined yet_, to parse the response object from the review page.
+
+
+```python
+def parse_detail_page(self, response):
+    # This fucntion parses the product detail page.
+    # The link to the first page of reviews.
+    first_review_page = response.xpath('//div[@class="see-all-reviews-button-container"]/a/@href').extract_first()
+    yield Request(url='https://www.bestbuy.com/' + first_review_page, callback=self.parse_review_page)
+```
+
+---
+# An additional Challenge
+
+- **Homework:** 
+    - What if a product has less than 8 reviews? The `first_review_page` will be a `None` object.
+    
+    - *Hint:* Find the list of reviews on the page and check the length of it.
+    
+    - If the list is empty, then you just return; if the length is less than 8, you just yield all of them and call it a day; otherwise we need to go one level deeper.
+    
+    - Check the lab solution for details.
+
+
+---
+# Carrying data down levels
+- There are some cases that the data is only available on the previous level. If you dive to the next level, you won't be able to retreive the info again.
+
+- For example, the number of questions is only available on the product detail page. If you go to the review page, you can't find it anymore. So we need a way to piggyback it when we yield the Request.
+
+- Save the data you want to carry as a Python dictionary and pass it as the meta parameter in the Request object.
+
+
+```python
+def parse_detail_page(self, response):
+    # This fucntion parses the product detail page.
+    # The link to the first page of reviews.
+    first_review_page = response.xpath('//div[@class="see-all-reviews-button-container"]/a/@href').extract_first()
+    question = response.xpath('//div[@class="ugc-qna-stats ugc-stat"]/a/text()').extract_first()
+    question = re.findall('\d+', question)[0]
+    yield Request(url='https://www.bestbuy.com/' + first_review_page, meta={'question': question}, callback=self.parse_review_page)
+```
+
+---
+# Second middle way checkpoint - print meta data from response
+- We are almost there. Next we need to define the `parse_review_page()`, which will parse the review page.
+
+- First of all, you need to extract the fields from the meta in the response.
+
+
+```python
+question = response.meta['question']
+```
+
+- Using Scrapy shell to find all the reviews. Again you need to quit the current session first because you are still on the product detail page.
+
+- Print out the length of the review tags list, together with question in the middle of the function so you know Scrapy is working as expected.
+
+---
+# Second middle way checkpoint - print meta data from response
+
+```python
+def parse_review_page(self, response):
+    # Retrieve the first reviews from meta
+    question = response.meta['question']
+    print(question)
+    print('=' * 50)
+    
+    # Find all the review tags
+    reviews = response.xpath('//li[@class="review-item"]')
+    print(len(reviews))
+    product = response.xpath("//a[@data-track = 'Product Description']/text()").extract_first()
+```
+- Now it is time to test the xpath of all the other fields of the `BestbuyItem` using the Scrapy shell.
+
+---
+# Define where each field is found on the reviews page
+- Let's fill in all the other fields of each `BestbuyItem`.
+
+```python
+# Extract each field from the review tag
+for review in reviews:
+    user = review.xpath('.//div[@class="undefined ugc-author v-fw-medium body-copy-lg"]/text()').extract_first()
+    rating = review.xpath('.//span[@class="c-review-average"]/text()').extract_first()
+    title = review.xpath('.//h3[@class="ugc-review-title c-section-title heading-5 v-fw-medium  "]/text()').extract_first()
+    text = review.xpath('.//p[@class="pre-white-space"]/text()').extract_first()
+    try:
+        helpful = review.xpath('.//button[@data-track="Helpful"]/text()').extract()[1]
+    except IndexError:
+        helpful = ""
+    try:
+        unhelpful = review.xpath('.//button[@data-track="Unhelpful"]/text()').extract()[1]
+    except IndexError:
+        unhelpful = ""
+```
+---
+# Set up iteration to populate the fields for each review 
+- Initialize a new `BestbuyItem` in each iteration of the for loop and assign the values to corresponding keys. Don't forget to yield the item at the end.
+
+
+```python
+item = BestbuyItem()
+item['user'] = user
+item['rating'] = rating
+item['title'] = title
+item['text'] = text
+item['helpful'] = helpful
+item['unhelpful'] = unhelpful
+item['product'] = product
+yield item
+```
+
+---
+# An additional Challenge
+- **Homework:** 
+  - Not all the computers have questions so you need try/except to catch the error.
+  
+  - Find the pattern of the urls of the following review pages.
+  
+  - Use a for loop to iterate through all the urls and yield a new Request object to the new url.
+  
+  - We need to define a new parse method because we just need to scrape the reviews from the following pages and no need to run the for loop again.
+  
+  - Check the lab solution for details.
+
+---
+# Building the last two .py files 
+- Good job! We are more than half way through the whole project. 
+
+- The only files left are **pipelines.py** and **settings.py**. Let’s start with **pipelines.py** first.
+
+- Remember we need to tell scrapy how to handle the `BestbuyItem` after we yield it from our spider. We can copy and paste the earlier lab example by replacing the keys with the ones from `BestbuyItem`.
+
+---
+# Processing data in **pipelines.py**
+- We will use the `CsvItemExporter` to write items to the **bestbuy_reviews.csv** file.
+
+
+```python
+class WriteItemPipeline(object):
+    def __init__(self):
+        self.filename = 'bestbuy_reviews.csv'
+    def open_spider(self, spider):
+        self.csvfile = open(self.filename, 'wb')
+        self.exporter = CsvItemExporter(self.csvfile)
+        self.exporter.start_exporting()
+    def close_spider(self, spider):
+        self.exporter.finish_exporting()
+        self.csvfile.close()
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+```
+
+---
+# Organize processing steps in **settings.py**
+- Give the `WriteItemPipeline` an order number.
+
+- Ignore the `robots.txt` file.
+
+- Wait 3 second between two separate `Requests`.
+
+
+```python
+ITEM_PIPELINES = { 'bestbuy.pipelines.WriteItemPipeline': 200}
+ROBOTSTXT_OBEY = False
+DOWNLOAD_DELAY = 3
+```
+
+---
+# Deploy Spider
+- Now we’re ready to deploy our spider!
+
+- First make sure you cd to the top of your project directory (where you have the scrapy.cfg)
+
+
+```bash
+*budget
+  scrapy.cfg         
+  budget/      
+    items.py
+    middlewares.py
+    pipelines.py  
+    settings.py
+    spiders/
+      bestbuy_spider.py
+```
+
+- Execute the following line of command.
+
+```bash
+scrapy crawl bestbuy_spider
+```
+
+- Enjoy watching the spider 'crawl!'
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+(function () {
+  $('.remark-slide-content').prepend('<div class="nyc-header" />');
+})();
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

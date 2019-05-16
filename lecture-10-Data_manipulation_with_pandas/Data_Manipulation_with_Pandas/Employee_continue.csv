@@ -1,0 +1,10 @@
+Department,Education,Sex,Title,Year,Name,Salary
+IT,Bachelor,M,analyst,1,Bob,90
+IT,Master,M,analyst,2,Jake,90
+HR,Master,M,analyst,2,John,90
+HR,Bachelor,F,analyst,2,Judy,90
+Trade,PHD,M,associate,3,Sam,120
+?,PHD,F,associate,5,Amy,120
+Trade,Master,F,associate,,Jennifer,120
+HR,Master,M,VP,8,Peter,262.5
+IT,?,F,VP,9,Mary,262.5

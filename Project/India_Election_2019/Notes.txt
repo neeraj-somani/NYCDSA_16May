@@ -1,12 +1,9 @@
 Major Parties -->
 
-Bharatiya Janta Party
-
-Congress
-
-AamAadmiParty
-
-Samaj Wadi Party
+1) Bharatiya Janta Party
+2) Congress
+3) AamAadmiParty
+4) Samaj Wadi Party
 
 Below are few hashtags that I can use to scrape the data --> 
 #VoteForIndia

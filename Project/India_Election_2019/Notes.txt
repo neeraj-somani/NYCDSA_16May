@@ -1,0 +1,42 @@
+Major Parties -->
+
+Bharatiya Janta Party
+
+Congress
+
+AamAadmiParty
+
+Samaj Wadi Party
+
+Below are few hashtags that I can use to scrape the data --> 
+#VoteForIndia
+#IndiaVote
+#IndiaVotes
+#IndianElection2019
+#BJP
+#Congress
+#NarendraModi
+#RahulGandi
+#PMModi
+#LokSabhaElections2019 
+
+Few Key Questions that can be answered -->
+1) How many tweets happened starting 1 jan 2019 till election result day.
+2) From which country/location tweets were? 
+3) How many times major leader names came in tweets? Which leader name was mostly used?
+4) Which leader/party had more positive vs negative sentiments?
+
+
+An awesome article about election win on Twitter but this was for 2014
+
+https://www.theatlantic.com/international/archive/2014/05/modi-won-the-indian-election-on-twitter-too/371057/
+
+sentiment analysis for election 2019
+
+https://medium.com/analytics-vidhya/twitter-sentiment-analysis-for-the-2019-election-8f7d52af1887
+https://www.indiamacroadvisors.com/page/category/politics/twitter-analysis
+https://towardsdatascience.com/sentiment-analysis-using-deep-learning-techniques-with-india-elections-2019-a-case-study-451549c8eb46
+
+Below is an awesome file that tells a lot about major Hashtag used so far -->
+https://www.indiamacroadvisors.com/public/uploads/ckImages/Top_hashtags_final22.pdf
+

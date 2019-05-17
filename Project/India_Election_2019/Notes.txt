@@ -18,7 +18,8 @@ Below are few hashtags that I can use to scrape the data -->
 #NarendraModi
 #RahulGandi
 #PMModi
-#LokSabhaElections2019 
+#LokSabhaElections2019
+
 
 Few Key Questions that can be answered -->
 1) How many tweets happened starting 1 jan 2019 till election result day.
@@ -26,6 +27,8 @@ Few Key Questions that can be answered -->
 3) How many times major leader names came in tweets? Which leader name was mostly used?
 4) Which leader/party had more positive vs negative sentiments?
 
+Analysis Candidate Wise -->
+Analysis Constituency Wise -->
 
 An awesome article about election win on Twitter but this was for 2014
 
@@ -40,3 +43,7 @@ https://towardsdatascience.com/sentiment-analysis-using-deep-learning-techniques
 Below is an awesome file that tells a lot about major Hashtag used so far -->
 https://www.indiamacroadvisors.com/public/uploads/ckImages/Top_hashtags_final22.pdf
 
+some github repos -->
+https://github.com/harshitsaini/Analysis-of-Indian-general-election-2019
+
+https://github.com/pratapvardhan/Elections-India-2014

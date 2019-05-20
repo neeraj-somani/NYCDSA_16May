@@ -16,14 +16,39 @@ Below are few hashtags that I can use to scrape the data -->
 #RahulGandi
 #PMModi
 #LokSabhaElections2019
+#AAP
+#AamAadmiParty
 
 
 Few Key Questions that can be answered -->
-1) How many tweets happened starting 1 jan 2019 till election result day.
-2) From which country/location tweets were? 
-3) How many times major leader names came in tweets? Which leader name was mostly used?
-4) Which leader/party had more positive vs negative sentiments?
+1) How many tweets happened starting 1 jan 2019 till election result day?
+This is just the count of all tweets that we collected
+2) How many tweets are for each party (eg: how many tweets contain bjp or related party terms)
+Count the number of tweets contains the words related to each party
+3) From which country/location tweets were?  → this can’t be answered using twitterscraper package.
+4) How many times major leader names came in tweets? Which leader name was mostly used?
+Count the number of tweets that contains the leader name
+Narendra Modi
+Rahul Gandhi
+Arvind Kejriwal
+5) Which leader/party had more positive vs negative sentiments?
+Will do sentiment analysis of text for positive vs negative 
+6) frequency of the words
+Which word has highest frequency 
+Which hashtag has highest frequency
+We can calculate the percentage as well to understand this
+7) Which hashtag has maximum count
+8) which date has maximum number of tweets for which specific party or leader
+9) which tweet has highest links, replies, and retweets and compare this against each party leader
+10) 
 
+
+Items that I need to get based on above questions →
+Tweets
+Date of tweet
+Reply count
+Retweet count
+Like count
 Analysis Candidate Wise -->
 Analysis Constituency Wise -->
 
@@ -40,7 +65,22 @@ https://towardsdatascience.com/sentiment-analysis-using-deep-learning-techniques
 Below is an awesome file that tells a lot about major Hashtag used so far -->
 https://www.indiamacroadvisors.com/public/uploads/ckImages/Top_hashtags_final22.pdf
 
+
+
 some github repos -->
 https://github.com/harshitsaini/Analysis-of-Indian-general-election-2019
 
 https://github.com/pratapvardhan/Elections-India-2014
+
+https://gist.github.com/vickyqian/f70e9ab3910c7c290d9d715491cde44c
+
+https://github.com/WUJJU/ScrapyTwitter/blob/master/splashtry/spiders/trysplash.py
+
+https://github.com/PlayingNumbers/Captain_Marvel_Sentiment/blob/master/sentiment_a.py
+
+twitter URL -->
+https://twitter.com/search?q=(%23VoteForIndia%20OR%20%23IndiaVote%20OR%20%23IndiaVotes%20OR%20%23IndianElection2019%20OR%20%23BJP%20OR%20%23Congress%20OR%20%23NarendraModi%20OR%20%23RahulGandi%20OR%20%23PMModi%20OR%20%23LokSabhaElections2019%20OR%20%23AAP%20OR%20%23AamAadmiParty)%20since%3A2019-01-01%20until%3A2019-05-16%20lang%3Aen&src=typed_query
+
+
+
+Need to collect all xpath class for all item values

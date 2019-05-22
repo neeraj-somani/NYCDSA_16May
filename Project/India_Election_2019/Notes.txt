@@ -81,6 +81,10 @@ https://github.com/WUJJU/ScrapyTwitter/blob/master/splashtry/spiders/trysplash.p
 
 https://github.com/PlayingNumbers/Captain_Marvel_Sentiment/blob/master/sentiment_a.py
 
+
+https://github.com/tthustla/twitter_sentiment_analysis_part1/blob/master/Capstone_part2.ipynb
+
+
 twitter URL -->
 https://twitter.com/search?q=(%23VoteForIndia%20OR%20%23IndiaVote%20OR%20%23IndiaVotes%20OR%20%23IndianElection2019%20OR%20%23BJP%20OR%20%23Congress%20OR%20%23NarendraModi%20OR%20%23RahulGandi%20OR%20%23PMModi%20OR%20%23LokSabhaElections2019%20OR%20%23AAP%20OR%20%23AamAadmiParty)%20since%3A2019-01-01%20until%3A2019-05-16%20lang%3Aen&src=typed_query
 

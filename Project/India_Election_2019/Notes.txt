@@ -52,6 +52,9 @@ Like count
 Analysis Candidate Wise -->
 Analysis Constituency Wise -->
 
+Data Cleaning -->
+Removing the HTML tags, hyperlink, etc,
+
 An awesome article about election win on Twitter but this was for 2014
 
 https://www.theatlantic.com/international/archive/2014/05/modi-won-the-indian-election-on-twitter-too/371057/

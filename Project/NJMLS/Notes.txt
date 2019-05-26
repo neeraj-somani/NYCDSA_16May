@@ -1,0 +1,9 @@
+https://towardsdatascience.com/looking-for-a-house-build-a-web-scraper-to-help-you-5ab25badc83e
+
+We will do some EDA to understand the trends in real estate market
+
+like, which city has has 5 bedroom houses under $400k and which city has more than $400K and why.
+
+which house is under valued 
+which city is under valued and why
+

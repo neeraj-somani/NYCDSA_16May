@@ -7,3 +7,6 @@ like, which city has has 5 bedroom houses under $400k and which city has more th
 which house is under valued 
 which city is under valued and why
 
+starting scrapy with NJMLS.com
+but we can scrape any number of websites
+

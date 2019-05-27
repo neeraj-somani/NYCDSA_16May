@@ -22,6 +22,16 @@ first we installed scrapy-splash by using below link -->
 then we started project -->
 scrapy startproject real_estates_scrapy
 
+Question to Answer:
+1) How many multi-family property each town
+2) Average cost of house by town
+3) average number of rooms per house per town
+4) average property tax per town
+5) comparision between houses, which town can have less price but more rooms
+6) average year built for property in town
+
+we can try some correlation matrix as well.
+
 
 
 

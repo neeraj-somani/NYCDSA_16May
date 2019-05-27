@@ -31,6 +31,13 @@ Question to Answer:
 6) average year built for property in town
 
 we can try some correlation matrix as well.
+7) condition of house can be answered based on year built
+
+we can make our project something like below:
+https://nycdatascience.com/blog/student-works/residential-property-investment-visualization-and-analysis-shiny-app/
+
+https://nycdatascience.com/blog/student-works/house-price-data-cleansing-and-segmentation-tool/
+
 
 
 

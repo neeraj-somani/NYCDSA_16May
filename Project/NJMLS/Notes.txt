@@ -10,3 +10,19 @@ which city is under valued and why
 starting scrapy with NJMLS.com
 but we can scrape any number of websites
 
+project steps -->
+
+1) need to scrape new jersey county, city and zip_code field
+2) then use these fields to create njmls URL for each of above row and scrape them to generated needed data 
+3) create a seperate table for rental income in each state
+4) based on this we can analyze, which property can return what amount in how many years
+
+first we installed scrapy-splash by using below link -->
+
+then we started project -->
+scrapy startproject real_estates_scrapy
+
+
+
+
+

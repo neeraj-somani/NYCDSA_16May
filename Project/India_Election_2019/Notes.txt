@@ -61,7 +61,10 @@ An awesome article about election win on Twitter but this was for 2014
 
 https://www.theatlantic.com/international/archive/2014/05/modi-won-the-indian-election-on-twitter-too/371057/
 
-sentiment analysis for election 2019
+sentiment analysis for election 2019:
+1) How many positive vs negative vs nutral tweets
+2) majorly categised sentiments are "anger", "anticiaption", "disgust", "fear"
+3) word count distribution for both positive and negative tweets. This means we can count the number of words in each tweet and then relate it with positivity an dnegativity of tweets.
 
 https://medium.com/analytics-vidhya/twitter-sentiment-analysis-for-the-2019-election-8f7d52af1887
 https://www.indiamacroadvisors.com/page/category/politics/twitter-analysis

@@ -29,6 +29,10 @@ Question to Answer:
 4) average property tax per town
 5) comparision between houses, which town can have less price but more rooms
 6) average year built for property in town
+7) which county has the hightest mean prices
+8) which city has the highest mean prices
+9) try to calculate the pdf for price and map it using seaborn
+10) the pearson correlation of these two variables.
 
 we can try some correlation matrix as well.
 7) condition of house can be answered based on year built

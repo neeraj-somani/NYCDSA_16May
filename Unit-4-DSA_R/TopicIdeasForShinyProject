@@ -1,0 +1,31 @@
+Lecture Notes
+Please go back to the program overview and view the project from the side bar menu
+
+For this project, you are required to build an interactive Shiny application that can create visual representations of data insights and trends. Make sure there is a balance of interactivity and simplicity that allows an outside user to both understand your points and also uncover their own insights without distractions of unnecessary details. Choose a dataset that can demonstrate a story or problem. If you have trouble finding one, feel free to consult a TA for assistance.
+
+Successful projects will encompass a plethora of skills including, but not limited to:
+
+Submission in respect to the deadline.
+Background knowledge of dataset(s).
+Communication of motivation: why do we care?
+Research questions/answers of interest
+Time management (not going over the allotted time).
+Ability to answer audience questions.
+Explanation of future work: what would you do if given more time, data, etc.?
+Ability of an arbitrary audience to glean insights in your absence.
+Use of R and ggplot2, and Shiny.
+
+Some websites that are useful for this project:
+NYC Open Data
+Datasets for Data Mining and Data Science
+OECD.Stat
+Google Dataset Search
+Data USA
+Kaggle Datasets
+Awesome Dataset Github Repository
+Blog posts about open datasets
+Harvard Dataverse
+Medical Dataset
+Enigma Public Dataset
+
+For inspiration, take a look at our previous students’ blog posts (here are links specifically to the Shiny category and the Visualization category)

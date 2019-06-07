@@ -43,7 +43,13 @@ https://nycdatascience.com/blog/student-works/residential-property-investment-vi
 https://nycdatascience.com/blog/student-works/house-price-data-cleansing-and-segmentation-tool/
 
 
+Different Tab ideas -->
 
+1. Summary tab by city and county
+2. county wise comparision
+3. different kinds of graphs for analysis
+2. New Jersey Map
+3. one tab will list all the property links
 
 
 

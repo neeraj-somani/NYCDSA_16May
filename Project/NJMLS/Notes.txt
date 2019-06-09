@@ -56,3 +56,8 @@ Link to get New Jersey county and city co-ordinates
 http://us.earthdatabank.com/en-US/nj/new-jersey-maps.aspx
 http://us.earthdatabank.com/en-US/nj/bergen/nj-bergen-maps.aspx
 
+Question for tristan -->
+
+1) how to make two drop down work with each other (like, cities should have only list related to specific county)
+2) how to build a map of new jersey only, I have creapped lat and longitude details
+3) what kind of graphs I can build, I am little confused

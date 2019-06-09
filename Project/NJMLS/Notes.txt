@@ -51,5 +51,8 @@ Different Tab ideas -->
 2. New Jersey Map
 3. one tab will list all the property links
 
+Link to get New Jersey county and city co-ordinates
 
+http://us.earthdatabank.com/en-US/nj/new-jersey-maps.aspx
+http://us.earthdatabank.com/en-US/nj/bergen/nj-bergen-maps.aspx
 

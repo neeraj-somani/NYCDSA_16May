@@ -1,0 +1,4 @@
+pyLDAvis==2.1.2
+gensim==3.5.0
+nltk==3.3
+numpy==1.15.3

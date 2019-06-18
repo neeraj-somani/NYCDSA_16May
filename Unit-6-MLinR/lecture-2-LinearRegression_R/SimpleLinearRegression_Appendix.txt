@@ -1,0 +1,27 @@
+SIMPLE LINEAR REGRESSION 1
+
+
+Concepts Presented
+
+Properties from definitions
+First derivative
+Second derivative
+Newton raphson
+Normal equations
+Maximum Likelihood
+var(x) and SE(beta)
+
+Practice Questions
+Relate the following to each other
+	beta, cov, corr, Rsq
+What are the assumptions of SLR
+How are the normal equations solved for
+Why is the t distribution used for betas
+
+Advanced Topics
+Box Tidwell
+
+Advanced challenges
+Recreate the summary of fit(lm(x,y))
+Fit a linear model using error minimization
+Fit a linear model use likelihood maximization

@@ -1,0 +1,129 @@
+---
+title: "Simple_Linear_Regression_Homework"
+author: "NYC Data Science Academy"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
+```
+
+## Question 1: Anatomical Data from Domestic Cats
+**Purpose: Demonstrating understanding of how to run the models**
+
+1. **Load: ** 
+    + Load the *cats* from the **MASS** library. 
+    + This dataset includes the body and heart weights of both female and male adult domestic cats. 
+```{r}
+# Your code here
+
+```
+
+2. **Visualize: **
+    + Create a scatterplot of heart weight versus body weight. 
+    + From this plot alone, do you think simple linear regression would be a good fit for the data? Explain.
+
+```{r}
+# Your code here
+
+```
+
+3. **Model: ** Regress heart weight onto body weight. For this model:
+      + Write out the regression equation.
+      + Interpret the meanings of the coefficients in context of the problem.
+      + Are the coefficients significant? How can you tell?
+      + Is the overall regression significant? How can you tell? How does your answer from Part C relate?
+      + Find and interpret the RSE?
+      + Find and interpret the coefficient of determination.
+    
+```{r}
+# Your code here
+
+```
+
+## Question 2: Machine Learning Theory
+**Purpose: Demonstrate theory of lecture material**
+
+1. **Assumptions: **
+    + Assess each of the assumptions of linearity. 
+    + Which assumption are you tring to correct if you decide to apply a Box-Cox transformation?
+
+```{r}
+# Your code here
+
+```
+
+
+2. **Box-Cox Transformation: ** 
+    + If you apply a Box-Cox transformation to a variable which you already applied a Box-Cox transformation, what would happen? 
+    + If you are unsure, try doing it to see!
+
+```{r}
+# Your code here
+
+```
+
+
+3. **Evaluation: ** 
+    + Why do we use the R^{2} coefficient of determination to validate a linear model rather than the RSS? 
+    + Why does it make sense to square the residuals to help determine the best model?
+
+```{text}
+# Your explanation here
+
+```
+
+
+4. **Prediction and Confidence Bands: ** Why is the prediction band wider than the confidence band? Why does the confidence band widen as it travels away from the center of the regression line?
+
+```{text}
+# Your explanation here
+
+```
+
+## Question 3: Challenge Questions
+**Purpose: Push yourself for more advanced topics**
+
+These questions are an extension of the Question 1 coding questions from above.
+
+1. **Visualize: **Add to your plot from Question 1 Part 2. 
+    + Add the regression line.
+    + Add the residuals. Do any of the residuals seem abnormally large?
+    + Construct 95% confidence intervals for the model coefficients. Interpret the intervals in context of the problem.
+
+```{r}
+# Your code here
+
+```
+
+2. **Apply: **Construct confidence and prediction intervals for body weights of 2.8 kg, 5 kg, and 10 kg. Do you foresee any issues with reporting any of these intervals?
+
+```{r}
+# Your code here
+
+```
+
+3. **Tune: **Transform your data using a Box-Cox transformation. 
+    + Create a Box-Cox plot.
+    + Choose the best value of lambda (Keep in mind interpretability).
+    + Create a new regression and interpret your results.
+
+```{r}
+# Your code here
+
+```
+
+4. **Visualize: **Plot the regression line from the Box-Cox model on the scatter plot of heart weight versus body weight.
+
+```{r}
+# Your code here
+
+```
+
+5. **Compare: **Compare the models you created:
+    + Give one reason why you might use the original model instead of the Box-Cox transformed model.
+    + Give one reason why you might use the Box-Cox transformed model instead of the original model.
+
+```{text}
+# Your explanation here
+
+```

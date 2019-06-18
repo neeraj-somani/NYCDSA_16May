@@ -1,0 +1,25 @@
+Warm UP
+
+What is machine learning?
+	sup / unsupervised
+	regression / classification
+missingness
+	MCAR
+	MAR
+	MNAR
+
+KNN
+	k
+	Distance metric
+	Output as probability
+
+simple linear regression
+	Assumptions
+		normality
+		linearity
+		homoscedasticity
+		centered error
+	Normal equations
+	Math review
+	Related values: beta, cov, corr, Rsq
+

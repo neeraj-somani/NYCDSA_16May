@@ -1,0 +1,42 @@
+Math Warm Up
+	Philosophy
+		State definitions
+		properties come from definitions
+
+Definitions
+	E(x)
+		sum(x*p(x)) = sum(x*1/n)
+	variance
+		E((x-xbar)^2) = sum((x-xbar)^2)/n
+	covariance
+		E((x-xbar)(y-ybar)) = sum((x-xbar)(y-ybar)*1/n)
+Derivative
+	lim(x->0) ((f(x+h)-f(x))/h
+
+Review Variance
+	Variance of a normal
+		ChiSq
+	Equality of variance
+		Ftest
+
+Correlation and covariance
+
+Variance calculations
+	V(xbar) | x ~ iid = V(sum(x * 1/n))
+
+Calculus
+	Take derivative
+		d/dx x^n
+		https://www.youtube.com/watch?v=dZnc3PtNaN4
+		Binomial Theorem
+		https://www.youtube.com/watch?v=Cv4YhIMfbeM
+		Chain Rule
+		2nd derivative
+		https://www.youtube.com/watch?v=-cW5hCsc9Yc
+		Newtons Method
+		https://www.youtube.com/watch?v=WuaI5G04Rcw
+			zeros
+			optimization
+
+Finance example
+	optimal hedge

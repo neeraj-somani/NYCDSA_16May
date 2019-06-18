@@ -1,0 +1,124 @@
+---
+title: "Tree_Methods_HW"
+author: "NYC Data Science Academy"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
+```
+
+## Question #1: Orange Juice Data
+**Purpose: Demonstrating Understanding of how to run the models**
+
+1. **Load: **Load the *OJ* dataset from the **ISLR** library into your workspace. The data contains 1,070 purchases where the customer either purchased Citrus Hill or Minute Maid orange juice. A number of characteristics of the customer and product are recorded.
+```{r}
+
+```
+
+2. **Model a Tree: **Construct an initial decision tree predicting *Purchase* from all other variables in the training dataset.
+    + Split the data into a training and test set with an 80% - 20% split, respectively.
+    + Define splits based upon the Gini Coefficien
+    + What are the training and testing accuracies?
+```{r}
+
+```
+
+3. **Cross_Validate: **Cross-Validate your tree using *prune.misclass* as your cost-complexity pruning function.
+```{r}
+
+```
+
+4. **Visualize: **Visualize your CV results plotting misclassified observations against:
+    + terminal nodes
+    + alpha values
+```{r}
+
+```
+
+5. **Prune and Compare**
+    + Prune your tree based on the cross-validated results.
+    + What are the training and testing accuracies of your pruned tree?
+    + Visualize your pruned tree.
+    + Why are the test set predictions more accurate for the pruned tree than those for the initial tree?
+```{r}
+
+```
+
+6. **Model a Forest: **Construct an initial random forest predicting *Purchase* using the default settings. (This will create 500 trees)
+    + Give the accuracy of the training set (the oob accuracy) and the test set.
+    + Which variable is aiding the most in classifying the orange juice purchases?
+```{r}
+
+```
+
+7. **Tune: **Vary the number of variables considered as candidates at each node split in the random forest procedure (from one to all predictors). Record the out-of-bag error rates for each of these random forests on the training set.(**Hint**  You will want to record the error rate instead of the MSE since this is a classification problem. If you are modifying class code, try using the code snippet *fit$error.rate[500, 1]*)
+    + Visualize the out-of-bag error rates as they change with the number of variables considered at each split
+    + What is the maximum accuracy among your random forests on the training set? How many variables were    considered at each split in the best random forest.
+    + What is the oob accuracy of the bagged model on the training set? How many variables were considered at each split in this bagged model?
+```{r}
+
+```
+
+8. **Compare: **What is the accuracy of the best random forest from Part 7 on the test set? What is the accuracy of the bagged model on the test set?
+```{r}
+
+```
+
+
+## Question #2: Machine Learning Theory
+**Demonstrate theory of lecture**
+
+1. **Greedy: **What does it mean to say recursive binary splitting is a greedy process?
+```{text}
+
+```
+
+2. **Metrics: **What metric is commonly used to determine the optimal split in a regression trees? What about in a classification tree? Explain these metrics.
+```{text}
+
+```
+
+## Question #3: Challenge Questions
+**Purpose: Push yourself for more advanced topics**
+
+1. **Regularization: **Try to select the features with lasso, and then use the selected features to train the random forest. You might want to redo the cross-validation to select mtry now that the features are less. Is the result better than without lasso? Try to be careful when answering the last question.
+```{r}
+
+```
+
+2. **Transform: **In order to boost with classification trees, we need to do a bit of data munging to transform the response variable. You may use the following lines of code to produce the copies of your dataset *OJ.train.indicator* and *OJ.test.indicator* that have a transformed response variable. (**NB:** You must replace *OJ.train* and *OJ.test* with whatever names you used in your own code)
+```{r}
+# OJ.train.indicator = OJ.train
+# OJ.test.indicator = OJ.test
+# OJ.train.indicator$Purchase = as.vector(OJ.train$Purchase, mode = 'numeric') - 1
+# OJ.test.indicator$Purchase = as.vector(OJ.test$Purchase, mode = 'numeric') - 1
+
+```
+
+3. **Boosted Model: **Construct an initial boosted model on the training set that uses all of the following settings at once
+    + The Bernoulli Distribution
+    + 10,000 Trees
+    + An interaction depth of 4
+    + A shrinkage of parameter 0.001
+```{r}
+
+```
+
+4. **Predict: **Predict your test set observations using the initial boosted model across up to 10,000 trees, considering groups of 100 trees at a time. (**Hint:** Use *type = 'response'* and round your predictions).
+```{r}
+
+```
+
+5. **Evaluate: **Calculate and store the accuracy for each of the 100 models considered in Part 4. What is the minimum number of trees required to reach the maximum accuracy?
+```{r}
+
+```
+
+6. **Visualize: **Plot the accuracies found in Part 5 against the number of trees. Add the following to the plot:
+    + A horizontal line marking the best boosted accuracy on the test set
+    + A horizontal line marking the best random forest accuracy on the test set
+    + A horizontal line marking the best pruned tree accuracy on the test set.
+```{r}
+
+```
+

@@ -1,0 +1,27 @@
+
+
+Concepts Presented:
+Linear Algebra
+Multi collinearity
+VIF
+Overall F-test
+Partial F-test
+AIC
+BIC
+Dummy Variables
+Polynomial Regression
+Power set count = 2^p
+Formulas in R
+Design Matrix
+x0 as vector of 1’s
+
+
+Challenge Questions:
+Recreate the summary of fit(lm(x,y))
+Recreate the summary plots of fit(lm(x,y))
+Fit a multiple linear model using Linear Algebra
+Fit a multiple linear model use likelihood maximization
+Fit a multiple linear model use likelihood optimization
+Manually create AVPlots
+Manually calculate AIC and BIC
+

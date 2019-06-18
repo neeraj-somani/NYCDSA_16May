@@ -1,0 +1,125 @@
+---
+title: "Principal_Component_Analysis_HW"
+author: "NYC Data Science Academy"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
+```
+
+## Question #1: Principal Component Analysis
+**Purpose: Demonstrate Understanding to Run Model**
+
+1. Load: Load the heptathlon dataset from the HSAUR library into your workspace. A heptathlon is a combined track and field event-based contest for women. This dataset contains scores on each event at the 1988 Seoul Olympics. 
+```{r}
+
+
+```
+
+2. Visualize: Create a scatterplot matrix of all variables in the dataset. Notice anything?
+```{r}
+
+
+```
+
+3. Standardize: It will help to have all event scores going in the “same direction” (i.e., a higher event score implies a better performance, and a lower event score implies a worse performance). Transform the hurdle and running variables by subtracting the original scores for each athlete from the maximum score of the event. 
+```{r}
+
+
+
+```
+
+4. Visualize: Re-do the scatterplot matrix. How has the scatterplot matrix changed since being standardized? 
+```{r}
+
+
+
+```
+
+5. Decide: Create a scree-plot of your newly created dataset that doesn’t include the score variable. Extract the appropriate number of principal components from your dataset using the plot that does not include the score variable and save this object. 
+```{r}
+
+
+
+```
+
+6. Examine:
+a. What is the variance of the each of your extracted principal components? 
+b. How much variability in the original dataset is captured by each of your           extracted principal components?
+```{r}
+
+
+
+```
+
+
+## Questions #2: Machine Learning Theory
+**Purpose: Demonstrate Theory of Lecture Material**
+
+1. Curse of Dimensionality: What is the curse of dimensionality? What are some ways to address it? 
+```{r}
+
+
+
+```
+
+2. Pre-processing: What are some pre-processing requirements for PCA? Why?
+```{r}
+
+
+
+```
+
+3. Choosing Components: How do you decide the optimal number of components to use     for your PCA? 
+```{r}
+
+
+
+```
+
+4. Unsupervised for supervised: Give an example of how you might use principal        component analysis when attacking a supervised machine learning problem.
+```{r}
+
+
+
+```
+
+
+
+## Question #3:Challenge Questions
+
+The first four questions below are an extension of the Section 1 Coding Questions above. The fifth question is a theory question. 
+1. Visualize: Create a plot of the principal component loadings against each other.
+```{r}
+
+
+
+```
+
+2. Interpret: Use the object you created in part 5 and the plot in part 7 to help      construct interpretations for each principal component vector. 
+```{r}
+
+
+
+```
+
+3. Present: Create a scatterplot of each of the competitor’s results projected onto    the reduced dimensions.
+```{r}
+
+
+
+```
+
+4. Outliers: Comment on any observations that appear to be outliers. Who are these     competitors and why do they appear to be outliers?
+```{r}
+
+
+
+```
+
+5. Mathematics: How does PCA work mathematically? You don’t need to describe all      the equations, just work through the steps. 
+```{r}
+
+
+
+```

@@ -1,0 +1,138 @@
+---
+title: "Support Vector Machine Homework Soltuions"
+author: "NYC Data Science Academy"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
+```
+
+## Question #1: Wine Quality Data
+**Purpose: Demonstrate understanding of how to a Support Vector Classification model**
+
+1. Load: Read in the Wine Quality.csv dataset into your workspace. The data contains 1,599 observations of red Vinho Verde wines from the north of Portugal. The goal is to model wine quality based on various physicochemical measurements.
+
+```{r}
+wine = read.csv("https://s3.amazonaws.com/nycdsabt01/Wine+Quality.csv")
+
+```
+
+2. Munge: Perform some data munging:
+    a. Recode the quality variable to be a factor variable with values of “Low” for       quality ratings of 5 and below, and “High” for ratings of 6 and above.
+    b. Scale and center the numeric vectors of your dataset.
+
+```{r}
+
+```
+
+3. Split: Split the data into a training and test set with an 80% - 20% split, respectively. (NB: Use set.seed(0) so your results will be reproducible.)
+
+```{r}
+
+```
+
+4. Plot: Briefly explore some graphical EDA:
+    a. Explain why a maximal margin classifier is impossible to fit to this data. (NB:    Do not try to fit the maximal margin classifier.)
+    b. Explain why a support vector classifier is generally more desirable.
+
+```{r}
+
+```
+
+5. Fit a Model - Tune Cost Hyperparameter: Tune a support vector classifier with a linear kernel and cost ranging from 10-5 to 10-.5; try using the code snippet cost = 10^(seq(-5, -.5, length = 50)). Caution: This will take about a minute to run. (NB: Use set.seed(0) so your results will be reproducible.)
+
+```{r}
+
+
+```
+
+6. Analyze: 
+    a. What was the best cost parameter of the ones you tested?
+    b. What was the best error rate corresponding to the best cost?
+    c. Graphically view the cross-validated results. Is it plausible that you checked     enough values of cost?
+    d. How many support vectors are there in the best support vector classifier you       found?
+    e. What is the test error associated with this best support vector classifier?
+
+```{r}
+
+```
+
+7. Fit a Model to More Data: Fit a support vector classifier to all of the data using the best cost parameter you found in part 5.
+    a. How many support vectors does this support vector classifier have?
+    b. Is the 555th observation a support vector?
+    c. What is the overall error rate for this support vector classifier?
+
+```{r}
+
+```
+
+8. Plot: Visualize the support vector classifier by examining the free sulfur dioxide and total sulfur dioxide cross-section; to do so, use the following line of code (modified with your object names): plot(model, data, free.sulfur.dioxide ~ total.sulfur.dioxide).
+
+```{r}
+
+```
+
+9. Fit a Model with a Radial Kernel: Tune a support vector machine with a radial kernel. Check both cost and gamma values using the following code snippets: cost = seq(.75, 1.25, length = 5), gamma = seq(.55, .95, length = 5). Caution: This will take about a minute to run. (NB: Use set.seed(0) so your results will be reproducible.)
+
+```{r}
+
+```
+
+10. Analyze: 
+    a. What was the best cost parameter of the ones you tested?
+    b. What was the best gamma parameter of the ones you tested?
+    c. What was the best error rate corresponding to the best cost & gamma?
+    d. Graphically view the cross-validated results. Is it plausible that you checked     enough values of cost and gamma?
+    e. How many support vectors are there in the best support vector machine you found?
+    f. What is the test error associated with this best support vector machine?
+
+```{r}
+
+```
+
+11. Fit a Model to More Data: Fit a support vector machine to all of the data using the best cost and gamma parameters you found in part 9.
+    a. How many support vectors does this support vector machine have?
+    b. Is the 798th observation a support vector?
+    c. What is the overall error rate for this support vector machine?
+
+```{r}
+
+```
+
+12. Plot: Visualize the support vector machine by examining the free sulfur dioxide and total sulfur dioxide cross-section; to do so, use the following line of code (modified with your object names): plot(model, data, free.sulfur.dioxide ~ total.sulfur.dioxide).
+
+```{r}
+
+```
+
+13. Compare: List a pro and con for both:
+    a. The best support vector classifier you found in part 5.
+    b. The best support vector machine you found in part 9.
+
+```{r}
+
+```
+
+## Question #2: Machine Learning Theory
+**Purpose:Demonstrate Theory of Lecture Material**
+
+1. Hyperplanes: In training a support vector machine, we use a hyperplane to separate predicted classes. 
+    a. In a 3-dimensional space, how many dimensions does the separating hyperplane have?
+    b. In an n-dimensional space, how many dimensions does the separating hyperplane have?
+```{r}
+
+```
+
+2. Kernels: What is one advantage of using a linear kernel as opposed to another type (e.g. radial, polynomial)?
+    a. Conceptually, why does a linear mapping, relative to other types of mappings,      lead to this particular advantage?
+```{r}
+
+```
+
+## Question #3: Challenge Question
+1. Try fitting a support vector machine with a polynomial kernel. Figure out which parameters you need to tune and test out a range of possible values. 
+    a. What were your best parameters? 
+    b. How did this classifier perform relative to the others?
+```{r}
+
+```

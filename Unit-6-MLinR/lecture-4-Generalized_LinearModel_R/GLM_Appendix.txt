@@ -1,0 +1,29 @@
+
+
+GLM Summary
+Linear Regression requires a target variable on the real line.
+A link function transforms a target variable so that it can be equated to Xb.
+The inverse link function expresses the target variable in terms of b.
+Logistic regression Example:
+y = {cat, dog}
+y = [0,1]
+LogOdds(y) = Xb
+y = Inverse-LogOdds(Xb)
+y = Sigmoid(Xb)
+
+LogOdds is the link function.
+Sigmoid is the inverse link function.
+
+Challenge Questions:
+Code up Logistic Regression Manually using an optimizer
+
+Research Challenge:
+Recreate the plot L1 and  L2 constraint regions
+
+
+
+
+
+
+
+

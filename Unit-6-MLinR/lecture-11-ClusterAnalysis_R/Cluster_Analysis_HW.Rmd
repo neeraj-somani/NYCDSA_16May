@@ -1,0 +1,99 @@
+---
+title: "Cluster_Analysis_HW"
+author: "NYC Data Science Academy"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
+```
+
+## Question 1: K-Means
+Read in the *Protein.txt* dataset into your workspace. This dataset contains protein information from 1973 on nine different groups across 25 different European countries.
+
+1. Use the following commands to read the data into your workspace appropriately and scale the variables:
+```{r}
+protein = read.table("https://s3.amazonaws.com/nycdsabt01/Protein.txt", sep = "\t", header = TRUE)
+protein.scaled = as.data.frame(scale(protein[, -1]))
+rownames(protein.scaled) = protein$Country
+```
+
+```{r}
+# Answer here
+```
+
+2. Create and interpret a scree-plot for the within-cluster variance for various values of K used in the K-means algorithm.
+    + A Why might this graph indicate that K-means is not truly appropriate to model the data?
+```{r}
+# Answer here
+```
+
+3. Create a store 5 different K-means solutions that run the algorithm only 1 time each. (**NB: **Use *set.seed(0)* so your results will be reproducible.)
+```{r}
+# Answer here
+```
+
+4. Create and store 1 K-means solution that was selected from running the algorithm 100 separate times. (**NB: **Use *set.seed(0)* so your results will be reproducible.)
+```{r}
+# Answer here
+```
+
+5. Plot the 6 different solutions from Part 3 and Part 4 with:
+    + A *Cereals* on the x-axis
+    + B *RedMeat* on the y-axis
+    + C Colors for the different cluster assignments
+    + D Labels for the total within-cluster variances
+```{r}
+# Answer here
+```
+
+6. Plot the solution from Part 4 with:
+    + A *Cereals* on the x-axis
+    + B *RedMeat* on the y-axis
+    + C A label for the the total within cluster variance
+    + D Points for the centroids of each cluster
+    + E A horizontal line at 0.
+    + F A vertical line at 0.
+    + G Text listing the country for each observation in your dataset (instead of points), colored by the different cluster assignments. **Hint: **Use *type = "n"* when creating the *plot()*. Then use the *text()* function in tandem with the *rownames()* function.
+```{r}
+# Answer here
+```
+
+7. Interpret the clustering solution based on the graph you created in Part 6.
+```{r}
+# Answer here
+```
+
+## Question 2: Hierarchical Clustering
+Continue using the *Protein.txt* dataset you already loaded into your workspace.
+
+1. Calculate and store pairwise distance for each observattion in the dataset.
+```{r}
+# Answer here
+```
+
+2. Fit hierarchical clustering solutions using single, complete, and average linking.
+```{r}
+# Answer here
+```
+
+3. Visualize the dendrograms created in part 2.
+    + A Give an argument as to why single linkage might not be good to use.
+    + B Give an argument as to why complete linkage might be good to use.
+```{r}
+# Answer here
+```
+
+4. Cut your complete linkage tree into 2 groups.
+    + A Visualize the solution overlaid on top of the dendrogram.
+    + B Interpret the clusters by aggregating across the median.
+
+```{r}
+# Answer here
+```
+
+5. Cut your complete linkage tree into 5 groups.
+    + A Visualize the solution overlaid on top of the dendrogram.
+    + B Interpret the clusters by aggregating across the median.
+```{r}
+# Answer here
+```

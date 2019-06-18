@@ -1,0 +1,115 @@
+---
+title: "Generalized_Linear_Models_HW"
+author: "NYC Data Science Academy"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
+```
+
+## Question 1: Birdkeeping and Lung Cancer
+1. Load the **Sleuth2** library and extract the *case2002* dataset. This dataset reports results of a survey conducted from 1972 to 1981 in the Netherlands aiming to see if birdkeeping is a risk factor for lung cancer. Variables include whether or not an individual had lung cancer, whether or not they were birdkeeping, their gender, socioeconomic status, age, years of smoking, and average rate of smoking.
+```{r}
+
+```
+
+2. Create a scatterplot matrix of the continuous variables colored by whether or not an individual had lung cancer. Which variables may be problematic for our model?
+```{r}
+
+```
+
+3. Fit a logistic regression predicting whether or not an individual has lung cancer that includes all variables in the model.
+```{r}
+
+```
+
+4. Conduct and interpret an overall goodness of fit test for the model created in Part 3.
+```{r}
+
+```
+
+5. Interpret the coefficient of gender.
+```{r}
+
+```
+
+6. Fit a logistic regression predicting whether or not an individual has lung cancer that includes all variables in the model except the birdkeeping indicator. Conduct and interpret an overall goodness of fit test for the new model.
+```{r}
+
+```
+
+7. Conduct and interpret a drop in deviance test comparing the two models you’ve created thus far. Which would you keep in favor of the other?
+```{r}
+
+```
+
+8. Fit a logistic regression predicting whether or not an individual has lung cancer based only on whether or not they have birds and the number of years they have been smoking.
+```{r}
+
+```
+
+9. Conduct and interpret a drop in deviance test comparing the newest model to the original model. Which would you keep in favor of the other?
+```{r}
+
+```
+
+10. Compare the models across:
+    + AIC
+    + BIC
+    + R^2_dev
+    + Give an argument for choosing the model created in Part 8
+```{r}
+
+```
+
+11. Using the model created in Part 8, predict:
+    + A The probability of having lung cancer for an individual with an average number of years smoking with and without birds within their household.
+    + B The probability of having lung cancer for an individual with no years prior smoking with and without birds within their household.
+```{r}
+
+```
+12. Use the model created in part 8 to classify the observations in your dataset as having or not having lung cancer. Comment on how well the model performs as compared to the baseline.
+```{r}
+
+```
+
+
+## Question 2: Machine Learning Theory
+1. How do we estimate the coefficients in a logistic regression model?
+```{text}
+
+```
+2. How do we ust the logistic model to predict binary classes?
+```{text}
+
+```
+3. Why do we use the Wald Test?
+```{text}
+
+```
+4. Describe how you can compare two logistic models statistically?
+```{text}
+
+```
+
+## Question 3: Bonus Question
+1. Suppose we would like to train a logistic regression to predict whether or not an individual has lung cancer based only on the number of years they have been smoking. Implement the **negative log-likelihood function** for it.
+```{r}
+neg_log_likelihood<-function(intercept, slope){
+    # Your code here
+}
+
+#If you implement correctly, the code below:
+# install.packages('optimx')
+library(optimx)
+target <- function(pair) neg_log_likelihood(pair[1], pair[2])
+ans <- optimx(par=c(-1,-1), fn = target)
+print(ans$p1[1])
+print(ans$p2[1])
+
+#Should give the intercept and the slope very close to the result from:
+
+model = glm(LC ~ YR, family = "binomial", data = case2002)
+summary(model) 
+```
+

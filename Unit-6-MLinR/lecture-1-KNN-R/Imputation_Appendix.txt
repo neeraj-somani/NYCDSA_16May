@@ -1,0 +1,34 @@
+IMPUTATION AND KNN
+
+Concepts Presented
+Standardized distance metrics
+	Don’t accidentally let one dimension be more important than others
+caret package
+	Can be useful for preprocessing data
+Formulas in R.  E.g. y ~ x1 + x2
+Interpret classification outputs as probabilities
+	This enables ensembling the models
+ConfusionMatrix
+	This function from caret analyses classification models
+
+In-class Coding Questions
+Recreate missingness plots
+Create count of shared missingness
+Manually scale and center some data
+Create pairwise distances
+	For each row return which min
+Remember importance of distance metric
+
+Practice Questions
+What are some imputation methods?
+What are costs and benefits to different approaches to imputation?
+What happens to KNN as k approaches n
+What distance measures can be used for categorical data?
+
+Additional Topics
+MICE
+	Multiple Imputation by Chained Equations
+
+Advanced Challenges
+Recreate the missingness pattern table for up to four combinations
+	mice::md.pattern()

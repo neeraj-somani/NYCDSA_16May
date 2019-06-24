@@ -1,0 +1,25 @@
+Need to understand these terms for ML by heart -->
+
+1) Null Hypothesis
+2) p-value
+3) Normal distribution
+4) covariance
+5) Need to read and undertand mean, mode, median everyday to memorize it better
+5) variance
+6) standard deviation
+7) How to get the slope of a line or a curve
+8) True Linear Model equation -->
+
+Y = beta_zero (true intercept) + beta_one (True_Slope) X (this is capital x for all x values) + all errors
+
+All errors are independent of each other and mean of error is zero and variance should be same for all errors.
+
+
+
+Question ---> what is in the linear regression that tells us the cofidance of relationship between two variables
+what does this tells us about the confidance of relationship
+
+
+4 assumptions of Linear Regression -->
+
+Normality, Linearity, Constant Variance, Independent Errors

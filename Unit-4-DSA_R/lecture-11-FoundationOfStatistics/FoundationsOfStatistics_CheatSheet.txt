@@ -1,0 +1,36 @@
+
+
+Cheat Sheet Summary of Conclusions
+
+V(x) = Sum((x-xbar)^2)/n
+V(x) | xbar=0  = Sum(x^2)/n
+Z traditionally represents a standard normal random variable
+Z ~ N(0,1)
+V(Z) = Sum(Z^2)/n since mean of Z is 0 
+The normal distribution occurs naturally when small independent values are summed.
+The Central Limit Theorem observes that sums of any independent variables are normally distributed.
+A sampling distribution is the distribution of the average of samples taken from a distribution.
+An alternative hypothesis is tested against the random chance distribution of the null hypothesis.
+A sampling distribution can be used as a null hypothesis distribution for a sample mean.
+The ChiSq distribution is the distribution of sums of squared standard normals.
+Since the expected value of a standard normal is 0, the sum of squared values measures variance.
+The ChiSq distribution is a null hypothesis distribution for variance.
+The count of standard normals in each sampling is the degrees of freedom.
+'Degrees of freedom' refers to the unique venues of description for observations or for predictors.
+If you have n independent observations, you have n possible degrees of freedom.
+To be scientific (parsimonious), you want to use as few degrees of freedom in your predictors as possible.
+If you divide the ChiSq sums by the degrees of freedom, you get the variance of a standard normal.
+The variance can be compared between data sets with different DoF's (observations).
+The ratio of variances of two normal distributions is the F distribution.
+The F distribution can tell you if two distributions differ.
+The F distribution is the null distribution of the random ratio of the variance between two distributions.
+The F test tells can tell you if groups of data are different from each other in an ANOVA.
+The partial F test tells you if the error variance differs between two models.
+Since the chiSq distribution is the null hypothesis distribution for variance, it estimates sigma.
+When calculating the error of a sample mean, a chiSq estimates the population variance.
+When the ChiSq is used to model the sample variance, the normal distribution becomes a t-distribution.
+
+Practice Work:
+Simulate ChiSq from Normal
+Simulate F from ChiSq's
+Simulate t from Normal

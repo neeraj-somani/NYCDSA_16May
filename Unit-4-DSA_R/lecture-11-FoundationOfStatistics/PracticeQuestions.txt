@@ -1,0 +1,14 @@
+Practice Questions
+
+
+State the formula for variance
+
+Calculate the variance of xbar where x ~ iid.
+
+Calculate V(X) where mean(X) = 0.
+What is the variance of Z ~ N(0, sigma).
+
+Describe V(Z) in terms of the Chi Square Distribution.
+
+What is the ratio of variance of Z1 and Z2 with n1 and n2 observations.
+Describe the ratio of normal variances in terms of the F distribution.

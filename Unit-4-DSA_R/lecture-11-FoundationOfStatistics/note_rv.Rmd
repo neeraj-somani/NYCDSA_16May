@@ -1,0 +1,330 @@
+---
+title: "Note on Random Variables"
+author: ""
+date: "10/19/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(tidyr)
+```
+
+## What a Random Variable is about?
+
+A **random variable** is a variable, whose value is to be determined with a **distribution**. A distribution tells you the likelihood of a possible value (event) to occur.
+
+- A statement like "flipping a fair coin" describes a distribution. It means that the possible events are **head** or **tail**, and the likelihood (probability) for each to occur is 50%. This is Bernoulli distribution. 
+
+- Suppose a random variable has a normal distribution (often denoted by $X \tilde{} N(\mu, \sigma)$), if the possible values are real numbers and the likelihood (probability density) for each number to occur can be represented by the famous *bell curve*.
+
+
+```{r}
+pts = -3 + (1:600)/100
+ggplot() +
+  geom_line(aes(x=pts, y=dnorm(pts)))
+```
+
+
+## Probability Density
+
+Probability density are not the same as probability, but it does indicates the "likelihood" for a value to occur:
+
+```{r cars}
+data = rnorm(100000)
+
+ggplot() + geom_histogram(
+  aes(x=data), color="red", fill="yellow"
+) + theme_bw()
+```
+
+## Side Issue: Why Density
+
+For the same histogram, change the parameter `bins` and inspect the y axis:
+
+```{r}
+ggplot() + geom_histogram(
+  aes(x=data), bins = 10, color="red", fill="yellow"
+) + theme_bw()
+```
+
+
+**Density** doesn't have the same problem:
+
+```{r}
+ggplot() + geom_histogram(
+  aes(x=data, y= ..density.. ), 
+  bins = 10, color="red", fill="yellow"
+) + theme_bw()
+```
+
+
+## Other Numerical Distribution
+
+**Unif distribution**
+```{r}
+data = runif(100000)
+
+ggplot() + geom_histogram(
+  aes(x=data), bins = 50, color="red", fill="yellow"
+) + theme_bw()
+```
+
+**ChiSq distribution**
+```{r}
+data = rchisq(100000, df = 20)
+
+ggplot() + geom_histogram(
+  aes(x=data), bins = 50, color="red", fill="yellow"
+) + theme_bw()
+```
+
+**F distribution**
+```{r}
+data = rf(100000, df1 = 50, df2=40)
+
+ggplot() + geom_histogram(
+  aes(x=data), bins = 50, color="red", fill="yellow"
+) + theme_bw()
+```
+
+
+## Transformations of Distributions
+
+If we know the distribution of a random variable, can we deduce the distribution of a new distribution "transformed" from the old ones? For example, if we know the distribution of a uniform distribution $U$, what about $U+2$?
+
+```{r}
+data = runif(100000)
+
+ggplot() + 
+  geom_histogram(aes(x=data), bins=50, fill="yellow", alpha= 0.7) + 
+  geom_histogram(aes(x=data + 2), bins=50, fill="green", alpha= 0.7)
+```
+
+
+## Central Limit Theorem
+
+The **central limit theorem** is the fundation of many statistical techniques. It's also about deducing the distribution of a new derived random variable from that of the old ones.
+
+Consider the case, that $U_1, U_2, U_3, ..., U_n$ are `n` random variables that are
+- mutually independent
+- with uniform distribution
+
+What would the distribution of the average, $ \sum_{1}^n(U_i)/n$ be?
+
+Central limit theorem tells us that the average would (approximately) follow the normal distribution with the mean equals to the mean of $U_i$, and with the variance equal to the variance of $U_i$ divided by n.
+
+Let's look at the code to confirm it:
+
+```{r}
+n = 300
+sample_size = 10000
+
+data = as.data.frame(
+  sapply(1:sample_size, function(x){runif(n)})
+)
+
+data[, 1:4]
+```
+
+so the average of each sample set is:
+
+```{r}
+avgs = colSums(data)/n
+avgs[1:4]
+```
+
+Therefore the distribution can be visualized with the histogram
+
+```{r}
+ggplot() +
+  geom_histogram(aes(x=avgs))
+```
+
+The central limit theorem says not only the distribution is normal, it also specifies the mean and the variance of the normal distribution:
+
+```{r}
+mu = 0.5
+var = 1/12
+ref = rnorm(sample_size, mean=mu, sd=sqrt(var/n))
+
+df = data.frame(
+  value = c(avgs, ref), 
+  group=rep(c("simu", "ref"), each=sample_size)
+)
+ggplot(data=df) + 
+  geom_histogram(aes(x=value, fill=group), bins=30, alpha= 0.5) +
+  facet_grid(group~.)
+```
+
+## Another example for central limit theorem
+
+In fact, the central limit theorem is valid for not only a collection of uniform distribution, but **any** distribution:
+
+```{r}
+n = 300
+sample_size = 10000
+
+dgf = 10
+data = as.data.frame(
+  sapply(1:sample_size, function(x){rchisq(n, df=dgf)})
+)
+
+data[, 1:5]
+```
+
+```{r}
+hist(as.numeric(data[1,]))
+```
+
+then we compute the average in the same way:
+
+```{r}
+avgs = colSums(data)/n
+avgs[1:5]
+```
+
+Again we compare the histogram of our simulation with an actual normal distribution:
+
+```{r}
+mu = dgf
+var = 2*dgf
+ref = rnorm(sample_size, mean=mu, sd=sqrt(var/n))
+
+df = data.frame(
+  value = c(avgs, ref), 
+  group=rep(c("simu", "ref"), each=sample_size)
+)
+ggplot(data=df) + 
+  geom_histogram(aes(x=value, fill=group), bins=30, alpha= 0.5) +
+  facet_grid(group~.)
+```
+
+# Still another example for central limit theorem
+
+Now let's try f distribution:
+
+```{r}
+n = 300
+sample_size = 10000
+
+dgf1=30; dgf2=20
+data = as.data.frame(
+  sapply(1:sample_size, function(x){rf(n, dgf1, dgf2)})
+)
+
+data[, 1:5]
+```
+
+```{r}
+hist(as.numeric(data[1,]))
+```
+
+Finally we compare the histogram:
+```{r}
+avgs = colSums(data)/n
+
+mu = dgf2/(dgf2 - 2)
+var = 2*dgf2^2*(dgf1+dgf2-2)/dgf1/(dgf2-2)^2/(dgf2-4)
+ref = rnorm(sample_size, mean=mu, sd=sqrt(var/n))
+
+df = data.frame(
+  value = c(avgs, ref), 
+  group=rep(c("simu", "ref"), each=sample_size)
+)
+ggplot(data=df) + 
+  geom_histogram(aes(x=value, fill=group), bins=100, alpha= 0.5) +
+  facet_grid(group~.)
+```
+
+
+## More Transformations
+
+The  chi square distribution and the f distribution are defined by the transformations.
+
+## Chi Square Distribution
+
+The **chi square distribution with degree of freedom n** is defined to be the distribution of the sum of the square of `n` mutually independent random variables with the standard normal distribution. 
+
+Equivalently, suppose $U_1, U_2, U_3, ..., U_n$ are random variables with the standard normal distribution, then the **chi square distribution with degree of freedom n** is defined to be the distribution of $\sum_i^n U_i^{2}$. (Why is this sum interesting?)
+
+To make it precise:
+
+```{r}
+n = 30
+sample_size = 10000
+
+data = as.data.frame(
+  sapply(1:sample_size, function(x){ rnorm(n)  })
+)
+data[, 1:5]
+```
+
+```{r}
+hist(as.numeric(data[1,]))
+```
+
+```{r}
+SqSum = colSums(data*data)
+SqSum[1:4]
+```
+
+```{r}
+ref = rchisq(sample_size, df = n)
+
+df = data.frame(
+  value = c(SqSum, ref), 
+  group=rep(c("simu", "ref"), each=sample_size)
+)
+
+ggplot(data=df) + 
+  geom_histogram(aes(x=value, fill=group), bins=30, alpha= 0.5) +
+  facet_grid(group~.)
+```
+
+## F Distribution
+
+The **f distribution** is defined to be the distribution of the weighted ratio of two random variables of chi square distribution. 
+
+More precisely, suppose $\chi_{n_1}$ and $\chi_{n_2}$ are, respectively, the chi square distribution of degree of freedom $n_1$ and the chi square distribution of degree of freedom $n_2$. The the f distribution $F_{n_1, n_2}$ is defined to be the distribution of $\frac{ \chi_{n_1}/n_1  }{  \chi_{n2}/n_2 }$.
+
+To simulate:
+
+```{r}
+n1=20; n2=30
+sample_size = 20000
+
+X1 = sapply(1:sample_size, function(x){ rchisq(1, n1)  })
+
+X2 = sapply(1:sample_size, function(x){ rchisq(1, n2)  })
+
+X1[1:5]
+X2[1:5]
+```
+
+```{r}
+hist(X1)
+```
+
+
+```{r}
+ratio = (X1/n1) / (X2/n2)
+
+ref = rf(sample_size, n1, n2)
+
+df = data.frame(
+  value = c(ratio, ref), 
+  group=rep(c("simu", "ref"), each=sample_size)
+)
+
+ggplot(data=df) + 
+  geom_histogram(aes(x=value, fill=group), bins=30, alpha= 0.5) +
+  facet_grid(group~.)
+```
+
+
+
+
+
+

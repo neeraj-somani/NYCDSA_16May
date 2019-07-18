@@ -1,2 +1,63 @@
 Lecture 1 -->
 
+ML wouldn't directly land you to job, you need good coding and Data Analysis skills to thrive in job.
+Once you get those skills then your ML skills will help you.
+
+If you feel difficulty in learning some lectures, you should master atleast below 4 topics -->
+
+1) Linear Regression
+2) Multiple Linear Regression
+3) Logistic Regression
+4) Discriminant Analysis
+5) Model Selection (Cross Validation)
+
+Always become Coherent in the skills that you want to excel in your life.
+
+What is ML --> ML try to understand and learn from the data/examples/observations and no need to write the program. And its much more efficient than hand-written programmed. Hence, ML can be written as "Programming by Example"
+
+Hence, to understand the data pattern we need to understand the statistics part of it.
+On the other side, these statistical computation are very complex and hence we need computer capabilities to solve it faster. Hence, computer Science comes into picture of ML to make these ML algorithm more optimized, performance based result.
+These are the 2 major components of ML.
+
+Hence, RML is more statistical version on ML
+while PML is more towards Computer Science background of ML.
+
+Example:-  Tree Recognition in picture, Amazon product Recommendation system. (These would be a good example for your capstone project)
+
+2 Main type of ML --> 
+Supervised Learning --> 
+  Inferential (focus more on effect of one variable on another) and Predictive Tasks (focus more on high accuracy of output variable) 
+  predict outcome based on input variables
+  Understand the relationship between variables
+  Regression Problem, Y is quantitative (eg, price), predict continous outcome
+  Classification Problem, Y is categorical (eg, digits 0-9), predict discrete output (example, yes or no)
+
+Unsupervised Learning -->
+  No outcome variables, input is often called features, Outcome is more fuzzy, 
+  example, cluster the output in segments or seperate groups
+
+Scikit-Learn is the majorly used package for PML. Because this one package provides almost all major ML algorithms. Only few exceptions.
+https://scikit-learn.org
+
+Remember, to use as much picture as possible in your project.
+Remember, its not important today what project you did, but the skills that you learned through these projects is what matters the most.
+
+Remember, to allocate your time in project some percent in coding, in data analysis, and then in ML concepts.
+
+Simple Linear Regression --> Uncover the relationship between continous variable
+
+  Y = beta0 + beta1 *  X + epselon
+  here, 
+    beta0 --> intercept of the regression line
+    beta1 --> slope of regression line
+    epselon --> this is the error or residual term, this indicates that for a given value of x if we need ideal Y value then we need to add this error term to make it on regression line.
+ 
+Difference between mathematician and Statistitian --> Mathematician says I need a formula to understand and solve a problem, but statistitian says if there is no concrete formula we can add some error terms to need and analyze the result or impact of it.
+
+lecture completed till (1:40 min)
+
+    Estimating Coefficient -->
+    Coefficient of Determination --> 
+
+
+

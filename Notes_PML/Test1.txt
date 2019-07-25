@@ -54,9 +54,40 @@ Simple Linear Regression --> Uncover the relationship between continous variable
  
 Difference between mathematician and Statistitian --> Mathematician says I need a formula to understand and solve a problem, but statistitian says if there is no concrete formula we can add some error terms to need and analyze the result or impact of it.
 
-lecture completed till (1:40 min)
+Simple Linear Regression and Multiple LR are the two most coomonly known model that makes the good amount of assumptions to make the model work accurately. But in advanced supervised learning models like Support vector machine, random forest, etc this is not the case. Those models doesn't have so many assumptions.
 
-    Estimating Coefficient -->
+Below are 4 major assumptions of Linear Regression Model:
+1. Linearity --> This means, X and Y has linear relationship. If they are non-linear the model doesn't work accurately. This means X and Y observations can be represented by Linear regression formula. This assumption is completely for X and Y observations.
+
+on the other side, below 3 assumptions are for residuals or errors. As we can't estimate epselon (error) because it is random, hence we can study the properties of randomness.
+
+Randomess mostly described by probability distribution / nomality distribution / Gaussian distribution.
+
+2. Normality --> This assumption consider that all errors comes from same Gaussian distribution or normal distribution.
+Need to understand, what is Gaussian distribution.
+Normality of erros, can also be understood by ploting a histogram of all errors for a linear regression line. This histogram will give un-normalized distribution. We can calculate the mean and standard deviation of sample errors. Then we will plot a pdf curve (probablity density function) on this histogram. 
+
+Then we create a Gaussian distribution for the same mean and standard deviation. if both are representing same curve then we can assume that the errors are normaly distributed.
+
+if there is fate tail or if the curve or histogram doesn't show normality then Linear model doesn't work accurately.
+
+Apart from that, below two assumptions Constant Variance and Independent Errors, indicates that error of each observation follow the same distribution.
+However, there is no good way to plot a distribution for one observation. Hence, we consider to plot a distribution for subset of dataset and observe that if we take full dataset vs subset of dataset, are they both showing nearly same distribution.
+
+3. Constant Variance --> all histogram of individual error shows same variance.
+In simple words, variance measures how far a set of (random) numbers are spread out from their average value.
+
+4. Independent Errors --> Each error in regression is independent of one another. Means, size and direction of error is completely independent of one another. Also, refered to as IID (Identitical independent variables)
+
+Violating any of these assumptions will lead to inaccurate model. Need to understand how these assumptions impact the model.
+
+If you see in any dataset, your model is showing any discripencies in any of these assumptions you can either change the model or change the feature and understand the impact of it on model.
+
+Estimating Coefficient --> 
+          In real world, in general, slope and intercept are unknown for a linear model, we just know X and Y observations. Hence, the question is how to determine an optimal slope and intercept. Hence, which line would be a better fit for this kind of pattern and model.
+
+lecture completed till (2:07 min)
+    
     Coefficient of Determination --> 
 
 

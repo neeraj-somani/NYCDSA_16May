@@ -83,12 +83,12 @@ Violating any of these assumptions will lead to inaccurate model. Need to unders
 
 If you see in any dataset, your model is showing any discripencies in any of these assumptions you can either change the model or change the feature and understand the impact of it on model.
 
-Estimating Coefficient --> 
+   Estimating Coefficient --> 
           In real world, in general, slope and intercept are unknown for a linear model, we just know X and Y observations. Hence, the question is how to determine an optimal slope and intercept. Hence, which line would be a better fit for this kind of pattern and model.
 
 lecture completed till (2:07 min)
     
-    Coefficient of Determination --> 
+   Coefficient of Determination --> 
 
 
 

@@ -104,6 +104,23 @@ If you visualize the RSS, it looks like concave. Hence, RSS plot has concave pro
 
 Most of the models support concave property but nural network and few others are the example of model that doesn't support concave property.
 
+Every concave will have only one unique point that will be minimum center of the concave.
+
+RSS and R-square are different entities, R-sqaure always calculated in between 0 and 1. but RSS can be more than 1.
+Although, you can say they are relate to each other.
+
+The co-efficient that really minimizes the RSS is denoted by beta0-hat and beta1-hat, which is also known as OLS (Ordinary Least squares) estimator.
+
+The regression line always pass throught the center and which means X-bar, Y-bar, which is center of all x and y points.
+  beta0-bar = Y - beta1-bar * X
+
+and slope co-efficient is the ratio of (covariance of X, Y) and (variance of X).
+Hence, The slope is controlled by the co-relation of input and output. That is X and Y.
+
+How to measure the accuracy of Co-efficient --> (2:41 min)
+
+
+
 
 
 

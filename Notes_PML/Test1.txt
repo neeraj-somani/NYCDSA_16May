@@ -117,16 +117,34 @@ The regression line always pass throught the center and which means X-bar, Y-bar
 and slope co-efficient is the ratio of (covariance of X, Y) and (variance of X).
 Hence, The slope is controlled by the co-relation of input and output. That is X and Y.
 
-How to measure the accuracy of Co-efficient --> (2:41 min)
+How to measure the accuracy of Co-efficient --> 
+  Calculating Standard Error is the approach that we can use to understand the accuracy of our model. This SE will tell us how far our model is from perfect model. Also, mathematically its proved that as we increase the number of observation, SE for slope gets smaller.
+  
+  This concept is used in Variance biased trade-off. we will learn in later lecture.
+  Hence, this SE estimates the plausible range in which true regression lies within.
+  
+  The sum of SE^2 (SE-square), known as model variance of simple linear model. This tells us the overall range of model for the chosen sub-dataset. The tight model variance means a good model, while a wide range of SE indicates model is not trustworthy.
+  
+  Similar to this we can calculate the Standard Error for our residuals/errors. This is also known as Residual Standard error. 
 
+V. imp --> Once we calculate the standard error, now we can asses the accuracy of model coefficient by -->
+--> performing hypothesis test
+--> constructing confidence interval
 
+Major drawback of RSS, RSS doesn't give us any concrete idea about model for different set of observations. Every sub-dataset will bring different RSS value and hence its hard to asses the overall accuarcy of model.
+This is calculated by R-square, also known as co-efficient of determination.
 
-
-
-
-    
-   Coefficient of Determination --> 
+   Coefficient of Determination --> This tells us how much of your dataset spread around the linear model and the remaining is residual.
+        for example, if R-square is 0.6, then the dataset (X) spread around the model is 60% and 40% is residuals.
+          similarly, if R-square is 0.9, then the dataset (X) spread around the model is 90% and 10% is residuals. 
+          hence,     if R-square is 1, then dataset completely spread on linear model line, and there is no error.
          
-
+         R-square = 1 - (RSS/TSS)
+         Here, TSS --> total sum of square of Y
+         
+  Question, why RSS is always smaller or equal to TSS, 
+         What is R-square, It is how much better your regression line is than a simple horizontal line through the mean of the data. 
+         RSS, represents the squared residual with respect to regression line
+         TSS, represents the squared residual with respect to average value of Y and its fixed if data is known.
 
 

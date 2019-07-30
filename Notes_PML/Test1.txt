@@ -86,7 +86,27 @@ If you see in any dataset, your model is showing any discripencies in any of the
    Estimating Coefficient --> 
           In real world, in general, slope and intercept are unknown for a linear model, we just know X and Y observations. Hence, the question is how to determine an optimal slope and intercept. Hence, which line would be a better fit for this kind of pattern and model.
 
-lecture completed till (2:07 min)
+Inorder to understand the best fit line, we calculate residual for various coefficients and try to minimize the error/residule. The best line will be with least error.
+
+e = Y - beta0 - beta1 * X
+e = (e1, e2, e3, e4, ......, en)
+
+To quantify the difference between the model and the observation, Residual Sum of Squares will be calculated. Because, this will be give us an idea about the area that an error can cover.
+
+RSS = e1^2 + e2^2 + e3^2 +..... + en^2
+Hence, RSS = sum of (Y - beta0 - beta1 * X)
+
+Why we squared the error, because negative and positive both errors can become the part of RSS. If we just take sum without squares, then negative and positive errors can cancle then out and it  
+
+Hence, RSS completely depends on beta0 and beta1.
+
+If you visualize the RSS, it looks like concave. Hence, RSS plot has concave property. Hence, our goal to find the minimum of RSS. That will tell us the best fit model.
+
+Most of the models support concave property but nural network and few others are the example of model that doesn't support concave property.
+
+
+
+
     
    Coefficient of Determination --> 
          

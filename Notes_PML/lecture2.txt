@@ -19,3 +19,39 @@ RSS for multiple linear regression can be calculated as ==
 RSS = transpose of (Y - X * beta) * (Y - X * beta)
 
 How to minimize the residual, if X*transpose of X is non-singular then 
+
+Multi-colinearity topic --> https://statisticsbyjim.com/regression/multicollinearity-in-regression-analysis/
+
+Why multi-colinearity is a problem and how to avoid that -->
+
+A key goal of regression analysis is to isolate the relationship between each independent variable and the dependent variable. 
+
+The interpretation of a regression coefficient is that it represents the mean change in the dependent variable for each 1 unit change in an independent variable when you hold all of the other independent variables constant. 
+
+The idea is that you can change the value of one independent variable and not the others. However, when independent variables are correlated, it indicates that changes in one variable are associated with shifts in another variable. The stronger the correlation, the more difficult it is to change one variable without changing another.
+
+There are two basic kinds of multicollinearity:
+Structural multicollinearity: This type occurs when we create a model term using other terms. In other words, it’s a byproduct of the model that we specify rather than being present in the data itself. For example, if you square term X to model curvature, clearly there is a correlation between X and X2.
+Data multicollinearity: This type of multicollinearity is present in the data itself rather than being an artifact of our model. Observational experiments are more likely to exhibit this kind of multicollinearity.
+
+What Problems Do Multicollinearity Cause?
+Multicollinearity causes the following two basic types of problems:
+
+The coefficient estimates can swing wildly based on which other independent variables are in the model. The coefficients become very sensitive to small changes in the model.
+Multicollinearity reduces the precision of the estimate coefficients, which weakens the statistical power of your regression model. You might not be able to trust the p-values to identify independent variables that are statistically significant.
+
+Do I Have to Fix Multicollinearity? --> https://statisticsbyjim.com/regression/multicollinearity-in-regression-analysis/
+not always, see why in link. 
+
+
+Over-fitting -->
+The models that captures multi-colearity in training dataset can observe high discripancies in fitting test data vs train dataset. This phenomenon is known as overfitting.
+
+This problem can be overcome by penalized linear regression.
+
+Feature selection --> by reducing the number of feature we can reduce the effect of multi-colinearity.
+
+Increasing the number of features always increase the R-square (co-efficient of determination)
+
+Why R-square is not a good performance measure for increasing features.
+

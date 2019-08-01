@@ -1,0 +1,16 @@
+lecture 2 --> Multiple linear regressin
+
+Y-hat = beta0-hat + sum of (beta-i-hat * X)
+
+The reason we kept hat or caret on Y, beta0 and beta1, because we want to take the best possible value of all these 3 terms to define the model.
+
+Some concept on matrix -->
+
+Inverse of a matrix only make sense for non-sigular square matrixes. for example, A nxn, i.e. number of rows equal to numer of columns.
+
+A-inverse * A = A * A-inverse = I nxn (identity matrix)
+
+If the determinant of a matrix is not equal to zero, then the matrix is called a non-singular matrix.
+
+http://researchhubs.com/post/maths/fundamentals/singular-and-nonsingular-matrix.html
+

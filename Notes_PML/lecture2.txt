@@ -14,3 +14,8 @@ If the determinant of a matrix is not equal to zero, then the matrix is called a
 
 http://researchhubs.com/post/maths/fundamentals/singular-and-nonsingular-matrix.html
 
+RSS for multiple linear regression can be calculated as ==
+
+RSS = transpose of (Y - X * beta) * (Y - X * beta)
+
+How to minimize the residual, if X*transpose of X is non-singular then 

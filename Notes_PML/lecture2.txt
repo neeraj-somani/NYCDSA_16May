@@ -31,8 +31,8 @@ The interpretation of a regression coefficient is that it represents the mean ch
 The idea is that you can change the value of one independent variable and not the others. However, when independent variables are correlated, it indicates that changes in one variable are associated with shifts in another variable. The stronger the correlation, the more difficult it is to change one variable without changing another.
 
 There are two basic kinds of multicollinearity:
-Structural multicollinearity: This type occurs when we create a model term using other terms. In other words, it’s a byproduct of the model that we specify rather than being present in the data itself. For example, if you square term X to model curvature, clearly there is a correlation between X and X2.
-Data multicollinearity: This type of multicollinearity is present in the data itself rather than being an artifact of our model. Observational experiments are more likely to exhibit this kind of multicollinearity.
+  Structural multicollinearity: This type occurs when we create a model term using other terms. In other words, it’s a byproduct of the model that we specify rather than being present in the data itself. For example, if you square term X to model curvature, clearly there is a correlation between X and X2.
+  Data multicollinearity: This type of multicollinearity is present in the data itself rather than being an artifact of our model. Observational experiments are more likely to exhibit this kind of multicollinearity.
 
 What Problems Do Multicollinearity Cause?
 Multicollinearity causes the following two basic types of problems:
@@ -43,7 +43,6 @@ Multicollinearity reduces the precision of the estimate coefficients, which weak
 Do I Have to Fix Multicollinearity? --> https://statisticsbyjim.com/regression/multicollinearity-in-regression-analysis/
 not always, see why in link. 
 
-
 Over-fitting -->
 The models that captures multi-colearity in training dataset can observe high discripancies in fitting test data vs train dataset. This phenomenon is known as overfitting.
 
@@ -53,5 +52,26 @@ Feature selection --> by reducing the number of feature we can reduce the effect
 
 Increasing the number of features always increase the R-square (co-efficient of determination)
 
-Why R-square is not a good performance measure for increasing features.
+Why R-square is not a good performance measure for increasing features. --> because of multi-colinearity
+
+The solution for this is we use Adjusted R-square, --> This is explained well in RML, as python scikit learn package doesn't offer that.
+
+How to detect multi-colinearity --> using R-square
+Run the multiple linear regression of each feature against all other and calculate R-square for all features one by one. If any feature goes above 0.6 then that feature has high chances of multi-colinearity.
+
+There is another term in Data Science known as Tolerance, this is opposite of R-square. means, if R-square is high, tolerance is low.
+
+In terms of programming, we analysis our data using terms like 
+mean, median, mode, std, for analysis of one variable
+correlation, covariance for analysis relation between two variable
+
+Multiple linear regression for Categorical features -->
+two types -->
+Ordinal categorical features --> features that keeps order in them (like restaurent rating between 1 to 5)
+Nominal categorical features --> features that are different like (state names, NY, IL, CA, etc). These are distinct categories.
+
+
+
+
+
 

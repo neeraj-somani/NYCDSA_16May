@@ -1,0 +1,16 @@
+Penalized (Regularized) Linear Model -->
+
+There is a possibility of performance error of model due to:
+1. Biases --> The biases in a regression task refers to the systematic error of overestimating/underestimating the target
+
+2. Model Variances --> reflects the sensitivity of the model coefficients on the fed-in data points. In the context of multiple linear regression, the model variance refers to the slopes and intercept.
+The root cause of the high model variance is due to the appearance of multicollinearity among the data features.
+
+This multicollinearity among the train dataset can make our model, over-confident about what it learns in the data. But that could not be true for test data set.
+
+This suggests that as long as multicollinearity occurs, the linear coefficients estimated by the normal equation can be larger (in magnitude) than the un-observed true model’s coefficients.
+
+The Ways to Penalize the Coefficients -->
+
+--> We are aware that the slopes coefficients of features with different order of magnitudes (reflected by their stds) are quite different in their magnitudes. To make the slope comparison possible, we often standardize the input features, such that the new features all have unit standard deviation 
+--> With this understood, the way to measure the total size of the slope vector is called the Euclidean distance measure in mathematics

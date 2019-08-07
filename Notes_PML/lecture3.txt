@@ -14,3 +14,10 @@ The Ways to Penalize the Coefficients -->
 
 --> We are aware that the slopes coefficients of features with different order of magnitudes (reflected by their stds) are quite different in their magnitudes. To make the slope comparison possible, we often standardize the input features, such that the new features all have unit standard deviation 
 --> With this understood, the way to measure the total size of the slope vector is called the Euclidean distance measure in mathematics
+
+These can be done through,
+Euclidean distance --> Ridge Regression uses this method to add a penalization term to RSS
+
+Manhattan distance --> Lisso Regression uses this method to add a penalization term to RSS
+
+There is a hybrid of Ridge and Lasso called Elastic-Net.

@@ -1,0 +1,6 @@
+Logistic Regression and Gradient Decent -->
+
+Logistic regression, despite its name, is a linear model for classification rather than regression.
+
+
+1. Limitation of Linear Regression -->

@@ -1,6 +1,20 @@
+1. Limitation of Linear Regression --> How to create a good model for classification problem.
+
 Logistic Regression and Gradient Decent -->
 
 Logistic regression, despite its name, is a linear model for classification rather than regression.
+Idea: if we transform the linear function 𝛽0+𝛽1X using the sigmoid function S(t), then no matter what values 𝛽0, 𝛽1 or X take, y will always have values between 0 and 1.
+
+So different 𝛽0 and 𝛽1 will give different estimations Pr.
+
+The estimated probability is not explicitly determined by the data, but is estimated indirectly by maximum likelihood
+
+The odds of probability -->  The odds refers to class 1 to class 0 probability ratio p:(1-p) = p/(1-p), which dictates the imbalance of the class 1 vs class 0 frequencies.
+
+logistic regression can be viewed as a linear regression on the log odds
+
+While p varying in (0,1) interval, the log odds ranges in (0, infinity)
+
+Log Odds and the sigmoid function are inverse to each other
 
 
-1. Limitation of Linear Regression -->

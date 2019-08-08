@@ -18,3 +18,4 @@ While p varying in (0,1) interval, the log odds ranges in (0, infinity)
 Log Odds and the sigmoid function are inverse to each other
 
 
+

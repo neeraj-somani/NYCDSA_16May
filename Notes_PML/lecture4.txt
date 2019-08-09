@@ -15,7 +15,38 @@ logistic regression can be viewed as a linear regression on the log odds
 
 While p varying in (0,1) interval, the log odds ranges in (0, infinity)
 
-Log Odds and the sigmoid function are inverse to each other
+Log Odds and the sigmoid function (logistic function) are inverse to each other. 
+
+the likelihood function gives the joint probability of having the observations (X) with the prescribed labels (Y)
+The likelihood function L(𝛽0, 𝛽1) gives the probability of making the same prediction as the observed data. the higher L has a higher probability to produce the prescribed class labels.
+
+The maximal likelihood function is closely tied to Bernoulli distribution (coin flipping) and binomial distribution (independent coin flippings) discussed later.
+
+the logarithm of the likelihood function, called the log-likelihood:
+
+Logistic regression models are usually fitted by maximum log-likelihood, i.e., to find 𝛽0 and 𝛽1 that maximize the log likelihood function
+
+The log likelihood function is a nonlinear concave function, which is known to have a unique maximal point. The convexity/concavity makes the procedure to maximize the log-likelihood well behaved
+the model’s goal is to minimize the loss function
+
+For linear regressions, we use RSS or MSE as the loss function
+For logistic regression, we use the negation of log likelihood instead as loss function
+
+Thus the concavity of log-likelihood translates directly to the convexity of the log-loss function
+
+One set of parameter values is more likely than another set if it gives the observed outcome a higher probability of occurrence.
+➢ Using maximum likelihood estimation in tandem with observed outcomes allows us to hone in on the best estimates of the coefficients.
+
+The parameter estimates (beta0, beta1, etc) that yield the highest likelihood for our data are called the maximum likelihood estimates MLEs.
+
+We alluded to potentially using a computer routine to search through many possible parameter values to find the MLEs; however, this is unnecessary. For logistic regression, numerical methods are applied to search for the optimal coefficients. Gradient descent is a very popular algorithm for this.
+
+The Idea of Gradient Descent ---> Need to understand the defination from internet
+
+For logistic regression, its log loss is concave, being a local minimum and being the global minimum are the same thing
+
+But for many other more sophisticated ML algorithms, gradient descent needs to combine with random initial conditions to avoid converging only to a local minimum
 
 
-
+The Stochastic Gradient Descent -->
+  The empirical loss function involves summing over all training sample

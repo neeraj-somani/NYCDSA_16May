@@ -1,0 +1,14 @@
+Discriminant Analysis and Naive Bayes  -->
+
+1. Conditional Probability --> P(X |Y) --> means probablity of X when Y has occured before X. Hence, X is dependent on Y.
+
+recall, example of box A and box B with few points in Red, and black color.
+
+joint probability --> P(X, Y) = P(Y, X) --> probability of events in X and events in Y are independent of each other.
+
+Bayes Theoram --> explains the process and effect of swaping events (Y) and result (X) in conditional propability.
+      means how P(X | Y) can be converted into P(Y | X)
+
+
+Discriminant analysis --> is a statistical analysis technique which classifies based on hypothesizing the per class conditional probability distribution to be normal and pinning down these parameters by data fitting.
+

@@ -21,3 +21,46 @@ Bayes classifier minimizes the probability of mis-classification.
 For unbalanced classes, the classical Bayesian decision theory allows us to
 handle the scenario when the minority class is of particular interest.
 
+Topics that I need to understand properly -->
+
+1. Discriminant Analysis
+2. Linear DA
+3. Quadratic DA
+4. Naive Bayes
+5. Gaussian Naive Bayes
+6. MultinomialNB
+7. BernoulliNB
+
+Discriminant Analysis -->
+
+1. To build a Bayes classifier, we need to understand probability distribution of each class. Since this is a continuous distribution, the Gaussian distribution is widely used to model it. Different assumptions on Gaussian distribution result in different kind of classifiers. The following three are most common:
+
+Linear Discriminant Analysis (LDA)
+Quadratic Discriminant Analysis (QDA)
+Gaussian Naive Bayes (This is the same as QDA in a one dimensional case)
+
+Bayes Theorem --> It describes the probability of an event, based on some prior condition that might be related to the event.
+
+Discriminant Analysis: Basic Theory
+      When we label the data set according to the classification outcome, we may hypothesize that each sub-data set is generated from certain type of probability distributions. Discriminant analysis is a statistical technique which classifies by determining the probability distributions of all classes based on the data.
+
+The type of probability distribution is hypothesized. But the specific distribution is pinned down by data fitting
+
+Bayes Theorem --> Explains how conditional probability P(X | Y) relates to P(Y | X). This will be helpful to solve many classification problems. Because in many scenario we know probability of one vs other and this is the way we can relate known probability with unknown.
+
+Bayes theorem comes into play because we want to relate the two conditional probabilities. 
+
+Different models (hypotheses on the probability distributions) result in different types of classifiers.
+
+Bayes Classifier --> Once we can predict the probability of an observation belonging to each class category, we can then classify the observation to the class with the highest estimated probability. It minimises the probability of misclassification.
+
+The boundary of classification (decision boundary) is simply the location where the probabilities of different classes become the same.
+
+To understand probability of any class its important to understand the prior probability of each class in conditional probability. In discriminant analysis this becomes important while size of two class is different.
+
+Discriminant Analysis: Modeling --> from here onwards all points in ipython notebook are good. you can read from there itself.
+
+
+
+
+

@@ -12,3 +12,12 @@ Bayes Theoram --> explains the process and effect of swaping events (Y) and resu
 
 Discriminant analysis --> is a statistical analysis technique which classifies based on hypothesizing the per class conditional probability distribution to be normal and pinning down these parameters by data fitting.
 
+Probability distribution is mostly used for quantitaive measures, means for regression problems. 
+
+But for classification problems, probability measure is used.
+
+Bayes classifier minimizes the probability of mis-classification.
+
+For unbalanced classes, the classical Bayesian decision theory allows us to
+handle the scenario when the minority class is of particular interest.
+

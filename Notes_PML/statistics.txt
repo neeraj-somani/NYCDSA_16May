@@ -1,0 +1,4 @@
+PMF -> used to describe discrete random variales
+  properties -->
+      1. if we sum over all X values probabilities, it will sum up to 1.
+      

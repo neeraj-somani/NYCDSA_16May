@@ -20,7 +20,7 @@ string_from_text
 
 ## login credentials
 email_addr = 'neeraj.somani4@gmail.com'
-password = 'DataGeek@34'
+password = '*****'
 
 # 1- Load existing dictionary. Check for initial dictionary.
 # If empty initialize
